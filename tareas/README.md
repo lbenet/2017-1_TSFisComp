@@ -8,14 +8,15 @@
 
 # Fechas
 
-|     Asignación     | Fecha Final Pull Request | Fecha final de entrega  |         Estado         |
-|:------------------:|:------------------------:|:-----------------------:|:----------------------:|
-|        Tarea 0     |    Martes 23 de agosto   |  Martes 6 de septiembre | Se acepta *P Request*  |
-|        Tarea 1     |    Martes 30 de agosto   |  Martes 6 de septiembre | Se acepta *P Request*  |
+|     Asignación     | Fecha Final Pull Request | Fecha final de entrega  |         Estado         | Vínculo |
+|:------------------:|:------------------------:|:-----------------------:|:----------------------:|:-------:|
+|        Tarea 0     |    Martes 23 de agosto   |  Martes 6 de septiembre | En revisión  | [Click aquí](https://github.com/lbenet/2017-1_TSFisComp/blob/master/notas_clase/01_Introd_git.ipynb)
+|        Tarea 1     |    Martes 30 de agosto   |  Martes 6 de septiembre | Se acepta *P Request*  | [Click aquí](https://github.com/lbenet/2017-1_TSFisComp/blob/master/notas_clase/02_git_colaborativo.ipynb) |
+| Tarea 2 | Martes 30 de agosto | Martes 6 de septiembre | Se acepta *P request* | [Click aquí](https://github.com/lbenet/2017-1_TSFisComp/blob/master/notas_clase/02_git_colaborativo.ipynb)|
 
 
 =====================
 
-# Vínculos a las asignaciones
+# Aclaraciones
 
-La tarea 0 se puede encontrar dentro del siguiente [notebook](https://github.com/lbenet/2017-1_TSFisComp/blob/master/notas_clase/01_Introd_git.ipynb).
+- La tarea 2 son los ejercicios del notebook especificado.
