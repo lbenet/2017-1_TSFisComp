@@ -1,0 +1,545 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#Tarea 2\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "##Pregunta1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "f (generic function with 1 method)"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f(z)=z^2+(0.12256484161600012 -0.74486407104*im)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "Z=[]\n",
+    "for i in -1:0.01:1\n",
+    "    for j in -1:0.01:1\n",
+    "        push!(Z,i+j*im)\n",
+    "        end\n",
+    "end    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "K=[]\n",
+    "for i in -1:0.02:1\n",
+    "    for j in -1:0.02:1\n",
+    "        push!(Z,i+j*im)\n",
+    "        end\n",
+    "end  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "J=[]\n",
+    "for z in Z\n",
+    "    x=z\n",
+    "    for i in 1:100\n",
+    "        x=f(x)\n",
+    "        end \n",
+    "    if abs(x)<2\n",
+    "        push!(J,x)\n",
+    "    end \n",
+    "end        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0-element Array{Any,1}"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "J"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "M=[]\n",
+    "for k in K\n",
+    "    x=z\n",
+    "    for i in 1:1000\n",
+    "        x=f(x)\n",
+    "        end \n",
+    "    if abs(x)<2\n",
+    "        push!(J,x)\n",
+    "    end \n",
+    "end        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0-element Array{Any,1}"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "M"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Intenté con distintas \"rejillas\" de condiciones iniciales, pero todas se salen del cuadrado después de algunas iteraciones y ya no regresan. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "##Pregunta 2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Definimos la función en cuestión y su derivada, que vale 2 en todos los puntos menos en 5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "B (generic function with 1 method)"
+      ]
+     },
+     "execution_count": 54,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "B(x)=mod(2x,1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "L (generic function with 1 method)"
+      ]
+     },
+     "execution_count": 55,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "L(x)=2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "X=[2//3]\n",
+    "x=2//3\n",
+    "for i in 1:100\n",
+    "    x=B(x)\n",
+    "    push!(X,x)\n",
+    "    end     "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "101-element Array{Rational{Int64},1}:\n",
+       " 2//3\n",
+       " 1//3\n",
+       " 2//3\n",
+       " 1//3\n",
+       " 2//3\n",
+       " 1//3\n",
+       " 2//3\n",
+       " 1//3\n",
+       " 2//3\n",
+       " 1//3\n",
+       " 2//3\n",
+       " 1//3\n",
+       " 2//3\n",
+       "  ⋮  \n",
+       " 1//3\n",
+       " 2//3\n",
+       " 1//3\n",
+       " 2//3\n",
+       " 1//3\n",
+       " 2//3\n",
+       " 1//3\n",
+       " 2//3\n",
+       " 1//3\n",
+       " 2//3\n",
+       " 1//3\n",
+       " 2//3"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Usamos el método de Newton para encontrar las raíces de la función, podemos ver los resultados con distintos puntos iniciales:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "x=0.3\n",
+    "for i in 1:100\n",
+    "    x=x-(B(x)/L(x))\n",
+    "   end    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "y=0.25\n",
+    "for i in 1:100\n",
+    "    y=y-(B(y)/L(y))\n",
+    "   end     "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "z=0.8\n",
+    "for i in 1:100\n",
+    "    z=z-(B(z)/L(z))\n",
+    "   end     "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "w=0.765\n",
+    "for i in 1:1000\n",
+    "    w=w-(B(w)/L(w))\n",
+    "   end     "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.0"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.0"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "y"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.5"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "z"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.5"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "w"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "0.5 no es un punto fijo, ya que bajo la función va a dar a 0. Sin embargo, como definimos su derivada como 2, la iteración de Newton lo deja fijo. Así, si nuestra condición inicial es mayor a 0.5, nos llevará al 0.5, y si la condición inicial es menor a 0, nos llevará a 0, que es el único punto fijo de la función. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Para analizar la estabilidad del único punto fijo, 0, elejimos condiciones iniciales cercanas a él y vemos qué pasa después de algunas iteraciones. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "K=[1//1000]\n",
+    "k=K[1]\n",
+    "for i in 1:100\n",
+    "    k=B(k)\n",
+    "    push!(K,k)\n",
+    "end \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "101-element Array{Rational{Int64},1}:\n",
+       "   1//1000\n",
+       "   1//500 \n",
+       "   1//250 \n",
+       "   1//125 \n",
+       "   2//125 \n",
+       "   4//125 \n",
+       "   8//125 \n",
+       "  16//125 \n",
+       "  32//125 \n",
+       "  64//125 \n",
+       "   3//125 \n",
+       "   6//125 \n",
+       "  12//125 \n",
+       "    ⋮     \n",
+       "  14//125 \n",
+       "  28//125 \n",
+       "  56//125 \n",
+       " 112//125 \n",
+       "  99//125 \n",
+       "  73//125 \n",
+       "  21//125 \n",
+       "  42//125 \n",
+       "  84//125 \n",
+       "  43//125 \n",
+       "  86//125 \n",
+       "  47//125 "
+      ]
+     },
+     "execution_count": 52,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "K"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Las órbitas de puntos cercanos al cero oscilan entre (0,.5) y (.5,1) ya que estos dos conjuntos van del uno al otro bajo la función. Si la órita en algún momento está en (0,.5), entonces eventualmente va a llegar a (.5,1), de donde regresa en una sola iteración a (0,.5), y así infinitamente. Por lo tanto, el cero no es ni repusor ni atractor. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Julia 0.4.6",
+   "language": "julia",
+   "name": "julia-0.4"
+  },
+  "language_info": {
+   "file_extension": ".jl",
+   "mimetype": "application/julia",
+   "name": "julia",
+   "version": "0.4.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
