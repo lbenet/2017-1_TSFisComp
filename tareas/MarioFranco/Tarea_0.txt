@@ -1,4 +1,0 @@
-Hola
-Soy la tarea
-No tengo equipo aún
-Git commit
