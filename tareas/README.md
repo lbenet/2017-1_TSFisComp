@@ -15,6 +15,7 @@
 |        Tarea 2     |    Lunes 5 de septiembre   |  Lunes 19 de septiembre | En revisión   |
 |        Tarea 3     |    Lunes 19 de septiembre   |  Lunes 3 de octubre | Se acepta *P Request*  |
 |        Tarea 4     |    Lunes 26 de septiembre   |  Lunes 10 de octubre | Se acepta *P Request*  |
+|        Tarea 5     |    Lunes 17 de octubre   |  Lunes 31 de octubre | Se acepta *P Request*  |
 
 
 
