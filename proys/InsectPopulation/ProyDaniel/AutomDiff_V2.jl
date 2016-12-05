@@ -50,7 +50,6 @@ module AD
 
     +{T<:Real}(γ::T, a::Dual)= +(Dual(γ), a)
     -{T<:Real}(γ::T, a::Dual)= -(Dual(γ), a)
-    *{T<:Real}(γ::T, a::Dual)= *(Dual(γ), a)
     /{T<:Real}(γ::T, a::Dual)= /(Dual(γ), a)
 
 
