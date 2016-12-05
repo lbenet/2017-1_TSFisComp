@@ -40,17 +40,18 @@ module AD
 
 
     # Definiendo operaciones cuando el argumento de la derecha es un número
-    +{T<:Real}(a::Dual, γ::T) = +(a, Dual(γ))
-    -{T<:Real}(a::Dual, γ::T) = -(a, Dual(γ))
-    *{T<:Real}(a::Dual, γ::T) = *(a, Dual(γ))
-    /{T<:Real}(a::Dual, γ::T) = /(a, Dual(γ))
+    *{T<:Real}(β :: T, a :: Dual) = Dual(a.fun*β, a.der*β    )
+    +{T<:Real}(a::Dual, γ::T)= +(a::Dual, Dual(γ))
+    -{T<:Real}(a::Dual, γ::T)= -(a::Dual, Dual(γ))
+    *{T<:Real}(a::Dual, γ::T)= *(a::Dual, Dual(γ))
+    /{T<:Real}(a::Dual, γ::T)= /(a::Dual, Dual(γ))
 
     # Definiendo operaciones cuando el argumento de la izquierda es un número
 
-    +{T<:Real}(γ::T, a::Dual) = +(Dual(γ), a)
-    -{T<:Real}(γ::T, a::Dual) = -(Dual(γ), a)
-    *{T<:Real}(γ::T, a::Dual) = *(Dual(γ), a)
-    /{T<:Real}(γ::T, a::Dual) = /(Dual(γ), a)
+    +{T<:Real}(γ::T, a::Dual)= +(Dual(γ), a)
+    -{T<:Real}(γ::T, a::Dual)= -(Dual(γ), a)
+    *{T<:Real}(γ::T, a::Dual)= *(Dual(γ), a)
+    /{T<:Real}(γ::T, a::Dual)= /(Dual(γ), a)
 
 
 #Importamos todas las funciones para las cuales queremos definir su operacion 
